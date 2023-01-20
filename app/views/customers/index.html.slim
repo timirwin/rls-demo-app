@@ -1,0 +1,15 @@
+h1 Customers
+h2 = RLS.status
+
+div Navigation
+div
+  = link_to 'Tenants', tenants_path
+  = link_to 'Users', users_path
+  = link_to 'Customers', customers_path
+  = link_to 'RLS Disabled', everything_customers_path
+  = link_to 'Only Tenant', only_tenant_customers_path
+  = link_to 'Only User', only_user_customers_path
+
+ul
+  - @customers.each do |customer|
+    li #{customer.id}: #{customer.name} (T:#{customer.tenant_id}, U:#{customer.user_id})
